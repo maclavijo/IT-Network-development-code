@@ -16,3 +16,12 @@ interface GigabitEthernet0/0.200
   ip nat outside 
   ip virtual-reassembly in 
 !
+interface GigabitEthernet0/0.222
+  encapsulation dot1Q 222
+  ip vrf forwarding CUST_C
+  ip address 172.16.222.1 255.255.255.0
+  no ip redirects 
+  ip nat outside 
+  ip virtual-reassembly in 
+!
+
