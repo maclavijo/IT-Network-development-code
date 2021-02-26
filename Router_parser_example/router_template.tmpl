@@ -1,0 +1,11 @@
+Value INTF (\S+)
+Value VLAN (\S+)
+Value CUST (\S+)
+Value IPADDR (\S+)
+Value MASK (\S+)
+
+Start
+  ^interface ${INTF}
+  ^\s+encapsulation dot1Q ${VLAN}
+  ^\s+ip vrf forwarding ${CUST}
+  ^\s+ip address ${IPADDR} ${MASK} -> Record

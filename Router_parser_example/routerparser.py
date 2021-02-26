@@ -25,10 +25,10 @@ class routerParser():
             r'interface (.*)\n'
             r'\s+encapsulation dot1Q (.*)\n'
             r'\s+ip vrf forwarding %s\n'
-            r'\s+ip address (\S+.\S+.\S+.\S) .*\n' % customer
+            r'\s+ip address (.*) (.*)\n' % customer
        )
-        vlans = re.search(infoRegex, self.config)
-        return [vlans.group(1),vlans.group(2),vlans.group(3)]
+        parsedInfo = re.search(infoRegex, self.config)
+        return [parsedInfo.group(1),parsedInfo.group(2),parsedInfo.group(3), parsedInfo.group(4)]
 
     #First find customers, then find other info
     def parsedInfo(self):
